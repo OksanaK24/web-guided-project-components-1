@@ -34,6 +34,7 @@ imageData.forEach(imgObj => {
 //  Destructure `open` and `close` from the constants
 import panelData from "./data/panelData";
 import constants from "./data/constants";
+import linkData from "./data/linkData";
 
 const { open, close } = constants;
 /**
@@ -51,7 +52,6 @@ const { open, close } = constants;
 //  We will generate the panel with code, and we'll need the parent
 //  so we can append the code-generated panel to the DOM.
 const accordion = document.querySelector(".accordion");
-
 
 // TASK 4- Create a function 'makePanel' that creates a panel exactly as you see it in the HTML.
 function makePanel(data) {
@@ -140,3 +140,27 @@ panelData.forEach(elem => {
 // and returns an anchor tag with the right href, class and textContent.
 // Loop over the 'linkData' in the data folder, generate anchor tags
 // and append them to the nav.
+function linkMaker({ href, className, text }) {
+  // const href = obj.href;
+  // const className = obj.className;
+  // const text = obj.text;
+  const link = document.createElement("a");
+  link.href = href;
+  link.className = className;
+  link.textContent = text;
+  return link;
+}
+
+const nav = document.querySelector("nav");
+
+linkData.forEach(linkObj => {
+  const linkElem = linkMaker(linkObj);
+  nav.appendChild(linkElem);
+})
+
+/**
+ *      <a href="#" class="nav-item">Home</a>
+        <a href="#" class="nav-item">About</a>
+        <a href="#" class="nav-item">Blog</a>
+        <a href="#" class="nav-item">Contact</a>
+ */
