@@ -88,22 +88,6 @@ function makePanel(data) {
 
   // TASK 7- Add proper class names to our elements (See index.html for reference)
   // paying attention to the elements that need to start out hidden
-  /**
-   *    <!-- Remove this -->
-        <div class="panel">
-          <div class="panel-bar">
-            <h3>Title of Panel</h3>
-            <div class="panel-buttons">
-              <button class="panel-btn-open">&#9660</button>
-              <button class="panel-btn-close hide-btn">Close</button>
-            </div>
-          </div>
-          <div class="panel-content toggle-on">
-            Content of panel
-          </div>
-        </div>
-        <!-- Remove this -->
-   */
   panel.classList.add("panel");
   panelBar.classList.add("panel-bar");
   panelButtons.classList.add("panel-buttons");
@@ -122,7 +106,11 @@ function makePanel(data) {
   //  - the open button needs to go away (the 'hide-btn' class name controls this)
   //  - the close button needs to show (the 'hide-btn' class name controls this)
   //  - the contents need to show (the 'toggle-on' class name controls this)
-
+  panelButtons.addEventListener("click", () => {
+    openButton.classList.toggle("hide-btn");
+    closeButton.classList.toggle("hide-btn");
+    panelContent.classList.toggle("toggle-on");
+  })
 
   // don't forget to return the panel!
   return panel;
