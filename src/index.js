@@ -131,7 +131,6 @@ panelElems.forEach(elem => {
 panelData.forEach(elem => {
   const panelElem = makePanel(elem);
   accordion.appendChild(panelElem);
-
   // accordion.appendChild(makePanel(elem));
 })
 
